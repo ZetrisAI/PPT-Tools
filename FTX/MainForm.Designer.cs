@@ -35,9 +35,9 @@
             // 
             this.labelP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelP1.Location = new System.Drawing.Point(45, 11);
+            this.labelP1.Location = new System.Drawing.Point(12, 11);
             this.labelP1.Name = "labelP1";
-            this.labelP1.Size = new System.Drawing.Size(45, 26);
+            this.labelP1.Size = new System.Drawing.Size(78, 26);
             this.labelP1.TabIndex = 0;
             this.labelP1.Text = "0";
             this.labelP1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -48,7 +48,7 @@
             this.labelP2.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelP2.Location = new System.Drawing.Point(103, 11);
             this.labelP2.Name = "labelP2";
-            this.labelP2.Size = new System.Drawing.Size(46, 26);
+            this.labelP2.Size = new System.Drawing.Size(76, 26);
             this.labelP2.TabIndex = 0;
             this.labelP2.Text = "0";
             // 
