@@ -47,12 +47,14 @@ namespace FTX {
                 scoreAddress += 0x38;
             }
 
-            for (int i = 0; i < 2; i++) {
-                int temp = PPT.ReadInt32(new IntPtr(scoreAddress) + i * 4);
-                if (temp > score[i]) {
-                    total[i]++;
+            if (match == MatchState.Match) {
+                for (int i = 0; i < 2; i++) {
+                    int temp = PPT.ReadInt32(new IntPtr(scoreAddress) + i * 4);
+                    if (temp > score[i]) {
+                        total[i]++;
+                    }
+                    score[i] = temp;
                 }
-                score[i] = temp;
             }
 
             if (PPT.ReadInt32(new IntPtr(0x140573A78)) != 0x0) {
