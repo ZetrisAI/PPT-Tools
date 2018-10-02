@@ -16,7 +16,7 @@ namespace FTX {
             Finished
         }
 
-        static MatchState match = MatchState.Finished;
+        static MatchState match = MatchState.Menu;
 
         int[] score = new int[2] {0, 0};
         int[] total = new int[2] {0, 0};
