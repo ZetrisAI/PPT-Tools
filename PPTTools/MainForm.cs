@@ -25,6 +25,21 @@ namespace PPTTools {
             return true;
         }
 
+        private int FindPlayer() {
+            if (GameHelper.PlayerCount(PPT) < 2) {
+                return 0;
+            }
+
+            int localSteam = GameHelper.LocalSteam(PPT);
+
+            for (int i = 0; i < 2; i++) {
+                if (localSteam == GameHelper.PlayerSteam(PPT, i))
+                    return i;
+            }
+
+            return 0;
+        }
+
         private enum MatchState {
             Menu,
             Match,
@@ -128,6 +143,8 @@ namespace PPTTools {
 
         private void ScanTimer_Tick(object sender, EventArgs e) {
             if (EnsurePPT()) {
+                int playerIndex = FindPlayer();
+
                 FTX();
                 PPS();
                 APM();

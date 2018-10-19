@@ -52,5 +52,25 @@ namespace PPTTools {
         public static int Rating(VAMemory Game) => Game.ReadInt32(new IntPtr(
             0x140599FF0
         ));
+
+        public static int PlayerCount(VAMemory Game) => Game.ReadInt32(new IntPtr(
+            Game.ReadInt32(new IntPtr(
+                Game.ReadInt32(new IntPtr(
+                    0x140473760
+                )) + 0x20
+            )) + 0xB4
+        ));
+
+        public static int LocalSteam(VAMemory Game) => Game.ReadInt32(new IntPtr(
+            0x1405A2010
+        ));
+
+        public static int PlayerSteam(VAMemory Game, int index) => Game.ReadInt32(new IntPtr(
+            Game.ReadInt32(new IntPtr(
+                Game.ReadInt32(new IntPtr(
+                    0x140473760
+                )) + 0x20
+            )) + 0x118 + index * 0x50
+        ));
     }
 }
