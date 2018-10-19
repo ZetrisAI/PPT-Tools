@@ -1,6 +1,6 @@
 # PPT Tools
 
-Puyo Puyo Tetris tools enhance your streaming or playing experience by providing you with useful statistics about your gameplay
+Puyo Puyo Tetris tools enhance your streaming or playing experience by providing you with useful statistics about your gameplay.
 
 ## FTX
 
