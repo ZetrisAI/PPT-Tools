@@ -30,13 +30,15 @@
             this.labelDelimiter = new System.Windows.Forms.Label();
             this.ScanTimer = new System.Windows.Forms.Timer(this.components);
             this.labelPPS = new System.Windows.Forms.Label();
+            this.labelAPM = new System.Windows.Forms.Label();
+            this.labelRating = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
             // 
             this.labelP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelP1.Location = new System.Drawing.Point(12, 11);
+            this.labelP1.Location = new System.Drawing.Point(26, 11);
             this.labelP1.Name = "labelP1";
             this.labelP1.Size = new System.Drawing.Size(78, 26);
             this.labelP1.TabIndex = 0;
@@ -47,7 +49,7 @@
             // 
             this.labelP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelP2.Location = new System.Drawing.Point(103, 11);
+            this.labelP2.Location = new System.Drawing.Point(117, 11);
             this.labelP2.Name = "labelP2";
             this.labelP2.Size = new System.Drawing.Size(76, 26);
             this.labelP2.TabIndex = 0;
@@ -57,7 +59,7 @@
             // 
             this.labelDelimiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDelimiter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelDelimiter.Location = new System.Drawing.Point(67, 11);
+            this.labelDelimiter.Location = new System.Drawing.Point(81, 11);
             this.labelDelimiter.Name = "labelDelimiter";
             this.labelDelimiter.Size = new System.Drawing.Size(59, 26);
             this.labelDelimiter.TabIndex = 0;
@@ -74,19 +76,43 @@
             // 
             this.labelPPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPPS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelPPS.Location = new System.Drawing.Point(13, 50);
+            this.labelPPS.Location = new System.Drawing.Point(37, 47);
             this.labelPPS.Name = "labelPPS";
             this.labelPPS.Size = new System.Drawing.Size(165, 26);
             this.labelPPS.TabIndex = 1;
             this.labelPPS.Text = "0.000 PPS";
             this.labelPPS.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // labelAPM
+            // 
+            this.labelAPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAPM.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelAPM.Location = new System.Drawing.Point(40, 83);
+            this.labelAPM.Name = "labelAPM";
+            this.labelAPM.Size = new System.Drawing.Size(165, 26);
+            this.labelAPM.TabIndex = 1;
+            this.labelAPM.Text = "0.000 APM";
+            this.labelAPM.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelRating
+            // 
+            this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRating.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelRating.Location = new System.Drawing.Point(17, 118);
+            this.labelRating.Name = "labelRating";
+            this.labelRating.Size = new System.Drawing.Size(181, 26);
+            this.labelRating.TabIndex = 1;
+            this.labelRating.Text = "2000 > 50000";
+            this.labelRating.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(191, 88);
+            this.ClientSize = new System.Drawing.Size(218, 156);
+            this.Controls.Add(this.labelRating);
+            this.Controls.Add(this.labelAPM);
             this.Controls.Add(this.labelPPS);
             this.Controls.Add(this.labelP2);
             this.Controls.Add(this.labelP1);
@@ -108,6 +134,8 @@
         private System.Windows.Forms.Label labelDelimiter;
         private System.Windows.Forms.Timer ScanTimer;
         private System.Windows.Forms.Label labelPPS;
+        private System.Windows.Forms.Label labelAPM;
+        private System.Windows.Forms.Label labelRating;
     }
 }
 
