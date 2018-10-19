@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{23A2F118-FF17-423A-B57F-6DE28B808AC1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FTX</RootNamespace>
-    <AssemblyName>FTX</AssemblyName>
+    <RootNamespace>PPTTools</RootNamespace>
+    <AssemblyName>PPTTools</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ftx-icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
