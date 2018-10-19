@@ -9,3 +9,7 @@ FTX is a total games won counter for Free Play games ("First to X") format. This
 ## PPS
 
 PPS (pieces per second) counter for Tetris in Sprint, Solo and Online games. This allows streamers and competitors to track their in-game speed, follow their progress as they get faster and generally to show off.
+
+## APM
+
+APM (attack per minute) counter for Tetris in Solo and Online games. This allows streamers and competitors to track their damange output, mostly to see how effective their gameplay actually is.
