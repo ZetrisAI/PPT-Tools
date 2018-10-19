@@ -90,15 +90,27 @@ namespace PPTTools {
                 state = drop;
             }
 
+            int totalFrames = PPT.ReadInt32(new IntPtr(
+                PPT.ReadInt32(new IntPtr(
+                    PPT.ReadInt32(new IntPtr(
+                        PPT.ReadInt32(new IntPtr(
+                            PPT.ReadInt32(new IntPtr(
+                                0x1405989D0
+                            )) + 0x28
+                        )) + 0x20
+                    )) + 0x18
+                )) + 0x208
+            ));
+
+            if (totalFrames < 100) {
+                pieces = 0;
+            }
+
             int frames = PPT.ReadInt32(new IntPtr(
                 PPT.ReadInt32(new IntPtr(
                     0x1405989F0
                 )) + 0x594
             ));
-
-            if (frames < 2) {
-                pieces = 0;
-            }
 
             if (frames != 0) {
                 Decimal pps = Decimal.Divide(pieces, frames) * 60;
