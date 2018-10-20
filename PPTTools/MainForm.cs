@@ -112,7 +112,9 @@ namespace PPTTools {
             int garbage = GameHelper.GarbageSent(PPT, playerIndex);
 
             if (garbage != cGarbage) {
-                tGarbage += garbage;
+                if (garbage > cGarbage) {
+                    tGarbage += garbage - cGarbage;
+                }
                 cGarbage = garbage;
             }
         }

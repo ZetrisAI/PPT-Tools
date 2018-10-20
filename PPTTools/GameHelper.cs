@@ -103,7 +103,7 @@ namespace PPTTools {
             )) + 0x594
         ));
 
-        public static int Rating(VAMemory Game) => Game.ReadInt32(new IntPtr(
+        public static int Rating(VAMemory Game) => Game.ReadInt16(new IntPtr(
             0x140599FF0
         ));
 
