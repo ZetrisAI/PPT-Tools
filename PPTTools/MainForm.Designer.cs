@@ -32,6 +32,7 @@
             this.labelPPS = new System.Windows.Forms.Label();
             this.labelAPM = new System.Windows.Forms.Label();
             this.labelRating = new System.Windows.Forms.Label();
+            this.labelKPP = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
@@ -98,19 +99,31 @@
             // 
             this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRating.Location = new System.Drawing.Point(17, 118);
+            this.labelRating.Location = new System.Drawing.Point(17, 149);
             this.labelRating.Name = "labelRating";
             this.labelRating.Size = new System.Drawing.Size(181, 26);
             this.labelRating.TabIndex = 1;
             this.labelRating.Text = "2000 > 50000";
             this.labelRating.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // labelKPP
+            // 
+            this.labelKPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKPP.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelKPP.Location = new System.Drawing.Point(37, 116);
+            this.labelKPP.Name = "labelKPP";
+            this.labelKPP.Size = new System.Drawing.Size(165, 26);
+            this.labelKPP.TabIndex = 2;
+            this.labelKPP.Text = "0.000 KPP";
+            this.labelKPP.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(218, 156);
+            this.ClientSize = new System.Drawing.Size(218, 187);
+            this.Controls.Add(this.labelKPP);
             this.Controls.Add(this.labelRating);
             this.Controls.Add(this.labelAPM);
             this.Controls.Add(this.labelPPS);
@@ -136,6 +149,7 @@
         private System.Windows.Forms.Label labelPPS;
         private System.Windows.Forms.Label labelAPM;
         private System.Windows.Forms.Label labelRating;
+        private System.Windows.Forms.Label labelKPP;
     }
 }
 

@@ -25,19 +25,24 @@ namespace PPTTools {
             return true;
         }
 
-        private int FindPlayer() {
+        int playerIndex = 0;
+
+        private void FindPlayer() {
             if (GameHelper.PlayerCount(PPT) < 2) {
-                return 0;
+                playerIndex = 0;
+                return;
             }
 
             int localSteam = GameHelper.LocalSteam(PPT);
 
             for (int i = 0; i < 2; i++) {
-                if (localSteam == GameHelper.PlayerSteam(PPT, i))
-                    return i;
+                if (localSteam == GameHelper.PlayerSteam(PPT, i)) {
+                    playerIndex = i;
+                    return;
+                }
             }
 
-            return 0;
+            playerIndex = 0;
         }
 
         private enum MatchState {
@@ -81,7 +86,7 @@ namespace PPTTools {
                     match = MatchState.Finished;
                 }
             }
-
+            
             labelP1.Text = total[0].ToString();
             labelP2.Text = total[1].ToString();
         }
@@ -90,7 +95,7 @@ namespace PPTTools {
         int state = 0;
 
         private void PPS() {
-            int drop = GameHelper.PieceDropped(PPT);
+            int drop = GameHelper.PieceDropped(PPT, playerIndex);
 
             if (drop != state) {
                 if (drop == 1) {
@@ -104,11 +109,27 @@ namespace PPTTools {
         int tGarbage = 0;
 
         private void APM() {
-            int garbage = GameHelper.GarbageSent(PPT);
+            int garbage = GameHelper.GarbageSent(PPT, playerIndex);
 
             if (garbage != cGarbage) {
                 tGarbage += garbage;
                 cGarbage = garbage;
+            }
+        }
+
+        int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0};
+        int keystrokes = 0;
+
+        private void KPP() {
+            for (int i = 0; i < 7; i++) {
+                int temp = GameHelper.Keystroke(PPT, i);
+
+                if (temp != keyStates[i]) {
+                    if (temp == 1) {
+                        keystrokes++;
+                    }
+                    keyStates[i] = temp;
+                }
             }
         }
 
@@ -128,6 +149,7 @@ namespace PPTTools {
             if (totalFrames < 100) {
                 pieces = 0;
                 tGarbage = 0;
+                keystrokes = 0;
             }
 
             int frames = GameHelper.SmallFrames(PPT);
@@ -138,16 +160,23 @@ namespace PPTTools {
 
                 Decimal apm = Decimal.Divide(tGarbage, frames) * 3600;
                 labelAPM.Text = $"{apm.ToString("0.000")} APM";
+
+                Decimal kpp;
+                if (pieces == 0)
+                    kpp = 0;
+                else 
+                    kpp = decimal.Divide(keystrokes, pieces);
+                labelKPP.Text = $"{kpp.ToString("0.000")} KPP";
             }
         }
 
         private void ScanTimer_Tick(object sender, EventArgs e) {
             if (EnsurePPT()) {
-                int playerIndex = FindPlayer();
-
+                FindPlayer();
                 FTX();
                 PPS();
                 APM();
+                KPP();
                 Rating();
                 CalculateTimeBased();
             }

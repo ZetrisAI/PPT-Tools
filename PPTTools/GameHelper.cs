@@ -5,32 +5,86 @@ using System.Text;
 
 namespace PPTTools {
     class GameHelper {
-        public static int PieceDropped(VAMemory Game) => Game.ReadByte(new IntPtr(
-            Game.ReadInt32(new IntPtr(
-                Game.ReadInt32(new IntPtr(
-                    Game.ReadInt32(new IntPtr(
+        public static int PieceDropped(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
                         Game.ReadInt32(new IntPtr(
                             Game.ReadInt32(new IntPtr(
-                                0x140460C08
-                            )) + 0x18
-                        )) + 0x268
-                    )) + 0x38
-                )) + 0x3C8
-            )) + 0x1C
-        ));
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x140460C08
+                                        )) + 0x18
+                                    )) + 0x268
+                                )) + 0x38
+                            )) + 0x3C8
+                        )) + 0x1C
+                    ));
 
-        public static int GarbageSent(VAMemory Game) => Game.ReadInt32(new IntPtr(
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x1405989D0
+                                        )) + 0x78
+                                    )) + 0x20
+                                )) + 0xA8
+                            )) + 0x3C8
+                        )) + 0x1C
+                    ));
+            }
+
+            return -1;
+        }
+
+        public static int GarbageSent(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x140461B20
+                                        )) + 0x378
+                                    )) + 0x28
+                                )) + 0xD0
+                            )) + 0x180
+                        )) + 0x70
+                    ));
+
+                case 1:
+                    return Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x140461B20
+                                        )) + 0x378
+                                    )) + 0x28
+                                )) + 0x18
+                            )) + 0xD0
+                        )) + 0x64
+                    ));
+            }
+
+            return -1;
+        }
+
+        public static int Keystroke(VAMemory Game, int index) => Game.ReadByte(new IntPtr(
             Game.ReadInt32(new IntPtr(
                 Game.ReadInt32(new IntPtr(
                     Game.ReadInt32(new IntPtr(
-                        Game.ReadInt32(new IntPtr(
-                            Game.ReadInt32(new IntPtr(
-                                0x140461B20
-                            )) + 0x378
-                        )) + 0x28
-                    )) + 0xD0
-                )) + 0x180
-            )) + 0x70
+                        0x140461B20
+                    )) + 0x378
+                )) + 0xB0
+            )) + 0x3A + index * 0x02
         ));
 
         public static int BigFrames(VAMemory Game) => Game.ReadInt32(new IntPtr(
