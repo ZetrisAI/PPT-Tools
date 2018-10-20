@@ -49,13 +49,11 @@ namespace PPTTools {
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
                                     Game.ReadInt32(new IntPtr(
-                                        Game.ReadInt32(new IntPtr(
-                                            0x140461B20
-                                        )) + 0x378
-                                    )) + 0x28
-                                )) + 0xD0
-                            )) + 0x180
-                        )) + 0x70
+                                        0x140461B20
+                                    )) + 0x378
+                                )) + 0x28
+                            )) + 0xD0
+                        )) + 0x3C
                     ));
 
                 case 1:
@@ -86,6 +84,141 @@ namespace PPTTools {
                 )) + 0xB0
             )) + 0x3A + index * 0x02
         ));
+
+        public static int CurrentPiece(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x140461B20
+                                    )) + 0x378
+                                )) + 0xC0
+                            )) + 0x120
+                        )) + 0x110
+                    ));
+
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x140461B20
+                                    )) + 0x378
+                                )) + 0x20
+                            )) + 0x40
+                        )) + 0x400
+                    ));
+            }
+
+            return -1;
+        }
+
+        public static int NextPiece(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    0x140461B20
+                                )) + 0x378
+                            )) + 0xB8
+                        )) + 0x15C
+                    ));
+
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x1405989D0
+                                    )) + 0x78
+                                )) + 0x28
+                            )) + 0xB8
+                        )) + 0x15C
+                    ));
+            }
+
+            return -1;
+        }
+
+        public static int PiecePosition(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x1405989D0
+                                        )) + 0x78
+                                    )) + 0xB0
+                                )) + 0x8
+                            )) + 0x158
+                        )) + 0x130
+                    ));
+
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x140463FD8
+                                        )) + 0x18
+                                    )) + 0x380
+                                )) + 0xB0
+                            )) + 0x58
+                        )) + 0x766
+                    ));
+            }
+
+            return -1;
+        }
+
+        public static int PieceRotation(VAMemory Game, int index) {
+            {
+                switch (index) {
+                    case 0:
+                        return Game.ReadByte(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x1405989D0
+                                        )) + 0x78
+                                    )) + 0xA8
+                                )) + 0x3C8
+                            )) + 0x18
+                        ));
+
+                    case 1:
+                        return Game.ReadByte(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            Game.ReadInt32(new IntPtr(
+                                                0x1405989D0
+                                            )) + 0x78
+                                        )) + 0x20
+                                    )) + 0xA8
+                                )) + 0x3C8
+                            )) + 0x18
+                        ));
+                }
+
+                return -1;
+            }
+        }
+        
 
         public static int BigFrames(VAMemory Game) => Game.ReadInt32(new IntPtr(
             Game.ReadInt32(new IntPtr(

@@ -33,6 +33,7 @@
             this.labelAPM = new System.Windows.Forms.Label();
             this.labelRating = new System.Windows.Forms.Label();
             this.labelKPP = new System.Windows.Forms.Label();
+            this.labelFinesse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
@@ -99,7 +100,7 @@
             // 
             this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRating.Location = new System.Drawing.Point(17, 149);
+            this.labelRating.Location = new System.Drawing.Point(20, 182);
             this.labelRating.Name = "labelRating";
             this.labelRating.Size = new System.Drawing.Size(181, 26);
             this.labelRating.TabIndex = 1;
@@ -117,12 +118,23 @@
             this.labelKPP.Text = "0.000 KPP";
             this.labelKPP.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // labelFinesse
+            // 
+            this.labelFinesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFinesse.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFinesse.Location = new System.Drawing.Point(8, 149);
+            this.labelFinesse.Name = "labelFinesse";
+            this.labelFinesse.Size = new System.Drawing.Size(165, 26);
+            this.labelFinesse.TabIndex = 2;
+            this.labelFinesse.Text = "Finesse: 0";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(218, 187);
+            this.ClientSize = new System.Drawing.Size(218, 220);
+            this.Controls.Add(this.labelFinesse);
             this.Controls.Add(this.labelKPP);
             this.Controls.Add(this.labelRating);
             this.Controls.Add(this.labelAPM);
@@ -150,6 +162,7 @@
         private System.Windows.Forms.Label labelAPM;
         private System.Windows.Forms.Label labelRating;
         private System.Windows.Forms.Label labelKPP;
+        private System.Windows.Forms.Label labelFinesse;
     }
 }
 

@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinesseHelper.cs" />
     <Compile Include="GameHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

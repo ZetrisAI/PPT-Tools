@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -100,7 +101,9 @@ namespace PPTTools {
             if (drop != state) {
                 if (drop == 1) {
                     pieces++;
+                    Finesse();
                 }
+                
                 state = drop;
             }
         }
@@ -115,6 +118,7 @@ namespace PPTTools {
                 if (garbage > cGarbage) {
                     tGarbage += garbage - cGarbage;
                 }
+
                 cGarbage = garbage;
             }
         }
@@ -124,17 +128,57 @@ namespace PPTTools {
 
         private void KPP() {
             for (int i = 0; i < 7; i++) {
-                int temp = GameHelper.Keystroke(PPT, i);
+                int key = GameHelper.Keystroke(PPT, i);
 
-                if (temp != keyStates[i]) {
-                    if (temp == 1) {
+                if (key != keyStates[i]) {
+                    if (key == 1 && totalFrames >= 147) {
                         keystrokes++;
+
+                        if (i == 6 && !holdUsed) {
+                            finesseKeys.Clear();
+                            holdUsed = true;
+
+                            if (cHold == null) {
+                                cHold = cPiece;
+                                cPiece = GameHelper.NextPiece(PPT, playerIndex);
+                            } else {
+                                int temp = cHold.Value;
+                                cHold = cPiece;
+                                cPiece = temp;
+                            }
+                        }
+
+                        if (i != 2 && i != 6) {
+                            finesseKeys.Add(i);
+                        }
                     }
-                    keyStates[i] = temp;
+
+                    keyStates[i] = key;
                 }
             }
         }
 
+        int? cPiece = null;
+        int cPiecePos = 0;
+        int cPieceRot = 0;
+        bool holdUsed = false;
+        int? cHold = null;
+        int errors = 0;
+        List<int> finesseKeys = new List<int>();
+
+        private void Finesse() {
+            cPiecePos = GameHelper.PiecePosition(PPT, playerIndex);
+            cPieceRot = GameHelper.PieceRotation(PPT, playerIndex);
+
+            if (cPiece != null) {
+                errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
+            }
+
+            finesseKeys.Clear();
+            holdUsed = false;
+            cPiece = GameHelper.NextPiece(PPT, playerIndex);
+        }
+        
         int? startingRating = null;
 
         private void Rating() {
@@ -145,13 +189,19 @@ namespace PPTTools {
             labelRating.Text = $"{startingRating.ToString()} > {GameHelper.Rating(PPT).ToString()}";
         }
 
-        private void CalculateTimeBased() {
-            int totalFrames = GameHelper.BigFrames(PPT);
+        int totalFrames;
 
-            if (totalFrames < 100) {
+        private void CalculateTimeBased() {
+            totalFrames = GameHelper.BigFrames(PPT);
+
+            if (totalFrames < 148) {
                 pieces = 0;
                 tGarbage = 0;
                 keystrokes = 0;
+                finesseKeys.Clear();
+                holdUsed = false;
+                errors = 0;
+                cPiece = GameHelper.NextPiece(PPT, playerIndex);
             }
 
             int frames = GameHelper.SmallFrames(PPT);
@@ -169,6 +219,8 @@ namespace PPTTools {
                 else 
                     kpp = decimal.Divide(keystrokes, pieces);
                 labelKPP.Text = $"{kpp.ToString("0.000")} KPP";
+
+                labelFinesse.Text = $"Finesse: {errors.ToString()}";
             }
         }
 
