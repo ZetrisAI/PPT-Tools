@@ -169,9 +169,7 @@ namespace PPTTools {
         private void Finesse() {
             cPiecePos = GameHelper.PiecePosition(PPT, playerIndex);
             cPieceRot = GameHelper.PieceRotation(PPT, playerIndex);
-
-            label2.Text = $"{cPiece.ToString()}@{cPiecePos.ToString()},{cPieceRot.ToString()} - {String.Join(",", finesseKeys.ToArray())}";
-
+            
             if (cPiece != null) {
                 errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
             }
@@ -236,8 +234,6 @@ namespace PPTTools {
                 KPP();
                 Rating();
                 CalculateTimeBased();
-
-                label1.Text = cPiece.ToString();
             }
         }
     }
