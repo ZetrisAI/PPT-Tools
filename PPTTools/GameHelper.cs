@@ -155,13 +155,11 @@ namespace PPTTools {
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
                                     Game.ReadInt32(new IntPtr(
-                                        Game.ReadInt32(new IntPtr(
-                                            0x1405989D0
-                                        )) + 0x78
-                                    )) + 0xB0
-                                )) + 0x8
-                            )) + 0x158
-                        )) + 0x130
+                                        0x1404611B8
+                                    )) + 0x30
+                                )) + 0x38
+                            )) + 0xE0
+                        )) + 0x1A0
                     ));
 
                 case 1:

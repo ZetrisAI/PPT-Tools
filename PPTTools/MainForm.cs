@@ -148,7 +148,7 @@ namespace PPTTools {
                             }
                         }
 
-                        if (i != 2 && i != 6) {
+                        if (i != 2 && i != 3 && i != 6) {
                             finesseKeys.Add(i);
                         }
                     }
@@ -169,6 +169,8 @@ namespace PPTTools {
         private void Finesse() {
             cPiecePos = GameHelper.PiecePosition(PPT, playerIndex);
             cPieceRot = GameHelper.PieceRotation(PPT, playerIndex);
+
+            label2.Text = $"{cPiece.ToString()}@{cPiecePos.ToString()},{cPieceRot.ToString()} - {String.Join(",", finesseKeys.ToArray())}";
 
             if (cPiece != null) {
                 errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
@@ -200,6 +202,7 @@ namespace PPTTools {
                 keystrokes = 0;
                 finesseKeys.Clear();
                 holdUsed = false;
+                cHold = null;
                 errors = 0;
                 cPiece = GameHelper.NextPiece(PPT, playerIndex);
             }
@@ -233,6 +236,8 @@ namespace PPTTools {
                 KPP();
                 Rating();
                 CalculateTimeBased();
+
+                label1.Text = cPiece.ToString();
             }
         }
     }

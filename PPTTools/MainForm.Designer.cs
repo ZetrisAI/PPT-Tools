@@ -34,6 +34,8 @@
             this.labelRating = new System.Windows.Forms.Label();
             this.labelKPP = new System.Windows.Forms.Label();
             this.labelFinesse = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
@@ -128,14 +130,38 @@
             this.labelFinesse.TabIndex = 2;
             this.labelFinesse.Text = "Finesse: 0";
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(20, 208);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "2000 > 50000";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(20, 234);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 26);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "2000 > 50000";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(218, 220);
+            this.ClientSize = new System.Drawing.Size(218, 356);
             this.Controls.Add(this.labelFinesse);
             this.Controls.Add(this.labelKPP);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelRating);
             this.Controls.Add(this.labelAPM);
             this.Controls.Add(this.labelPPS);
@@ -163,6 +189,8 @@
         private System.Windows.Forms.Label labelRating;
         private System.Windows.Forms.Label labelKPP;
         private System.Windows.Forms.Label labelFinesse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
