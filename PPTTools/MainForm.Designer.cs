@@ -35,6 +35,7 @@
             this.labelKPP = new System.Windows.Forms.Label();
             this.labelFinesse = new System.Windows.Forms.Label();
             this.labelDuration = new System.Windows.Forms.Label();
+            this.labelAPC = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
@@ -90,7 +91,7 @@
             // 
             this.labelAPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAPM.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelAPM.Location = new System.Drawing.Point(42, 118);
+            this.labelAPM.Location = new System.Drawing.Point(42, 116);
             this.labelAPM.Name = "labelAPM";
             this.labelAPM.Size = new System.Drawing.Size(165, 26);
             this.labelAPM.TabIndex = 1;
@@ -101,7 +102,7 @@
             // 
             this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRating.Location = new System.Drawing.Point(22, 217);
+            this.labelRating.Location = new System.Drawing.Point(22, 251);
             this.labelRating.Name = "labelRating";
             this.labelRating.Size = new System.Drawing.Size(181, 26);
             this.labelRating.TabIndex = 1;
@@ -112,7 +113,7 @@
             // 
             this.labelKPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKPP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelKPP.Location = new System.Drawing.Point(39, 151);
+            this.labelKPP.Location = new System.Drawing.Point(39, 181);
             this.labelKPP.Name = "labelKPP";
             this.labelKPP.Size = new System.Drawing.Size(165, 26);
             this.labelKPP.TabIndex = 2;
@@ -123,7 +124,7 @@
             // 
             this.labelFinesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFinesse.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFinesse.Location = new System.Drawing.Point(10, 184);
+            this.labelFinesse.Location = new System.Drawing.Point(10, 218);
             this.labelFinesse.Name = "labelFinesse";
             this.labelFinesse.Size = new System.Drawing.Size(165, 26);
             this.labelFinesse.TabIndex = 2;
@@ -139,14 +140,26 @@
             this.labelDuration.TabIndex = 2;
             this.labelDuration.Text = "0:00.000";
             // 
+            // labelAPC
+            // 
+            this.labelAPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAPC.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelAPC.Location = new System.Drawing.Point(40, 148);
+            this.labelAPC.Name = "labelAPC";
+            this.labelAPC.Size = new System.Drawing.Size(165, 26);
+            this.labelAPC.TabIndex = 2;
+            this.labelAPC.Text = "0.000 APC";
+            this.labelAPC.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(218, 259);
+            this.ClientSize = new System.Drawing.Size(218, 292);
             this.Controls.Add(this.labelDuration);
             this.Controls.Add(this.labelFinesse);
+            this.Controls.Add(this.labelAPC);
             this.Controls.Add(this.labelKPP);
             this.Controls.Add(this.labelRating);
             this.Controls.Add(this.labelAPM);
@@ -176,6 +189,7 @@
         private System.Windows.Forms.Label labelKPP;
         private System.Windows.Forms.Label labelFinesse;
         private System.Windows.Forms.Label labelDuration;
+        private System.Windows.Forms.Label labelAPC;
     }
 }
 

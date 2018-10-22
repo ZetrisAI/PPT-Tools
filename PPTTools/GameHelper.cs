@@ -178,43 +178,72 @@ namespace PPTTools {
         }
 
         public static int PieceRotation(VAMemory Game, int index) {
-            {
-                switch (index) {
-                    case 0:
-                        return Game.ReadByte(new IntPtr(
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
                                     Game.ReadInt32(new IntPtr(
                                         Game.ReadInt32(new IntPtr(
-                                            Game.ReadInt32(new IntPtr(
-                                                0x140460C08
-                                            )) + 0x18
-                                        )) + 0x268
-                                    )) + 0x38
-                                )) + 0x3C8
-                            )) + 0x18
-                        ));
+                                            0x140460C08
+                                        )) + 0x18
+                                    )) + 0x268
+                                )) + 0x38
+                            )) + 0x3C8
+                        )) + 0x18
+                    ));
 
-                    case 1:
-                        return Game.ReadByte(new IntPtr(
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
                                     Game.ReadInt32(new IntPtr(
                                         Game.ReadInt32(new IntPtr(
-                                            Game.ReadInt32(new IntPtr(
-                                                0x1405989D0
-                                            )) + 0x78
-                                        )) + 0x20
-                                    )) + 0xA8
-                                )) + 0x3C8
-                            )) + 0x18
-                        ));
-                }
-
-                return -1;
+                                            0x1405989D0
+                                        )) + 0x78
+                                    )) + 0x20
+                                )) + 0xA8
+                            )) + 0x3C8
+                        )) + 0x18
+                    ));
             }
+
+            return -1;
         }
-        
+
+        public static int LinesCleared(VAMemory Game, int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    0x140461B20
+                                )) + 0x378
+                            )) + 0xA8
+                        )) + 0x2F8
+                    ));
+
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        Game.ReadInt32(new IntPtr(
+                                            0x140461B20
+                                        )) + 0x378
+                                    )) + 0xA8
+                                )) + 0x270
+                            )) + 0x20
+                        )) + 0x2F8
+                    ));
+            }
+
+            return -1;
+        }
 
         public static int BigFrames(VAMemory Game) => Game.ReadInt32(new IntPtr(
             Game.ReadInt32(new IntPtr(

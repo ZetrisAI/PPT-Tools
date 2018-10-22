@@ -123,6 +123,20 @@ namespace PPTTools {
             }
         }
 
+        int cCleared = 0;
+        int tCleared = 0;
+
+        private void APC() {
+            int cleared = GameHelper.LinesCleared(PPT, playerIndex);
+
+            if (cleared != cCleared) {
+                if (cleared > cCleared)
+                    tCleared += cleared;
+
+                cCleared = cleared;
+            }
+        }
+
         int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0};
         int keystrokes = 0;
 
@@ -197,6 +211,7 @@ namespace PPTTools {
             if (totalFrames < 148) {
                 pieces = 0;
                 tGarbage = 0;
+                tCleared = 0;
                 keystrokes = 0;
                 finesseKeys.Clear();
                 holdUsed = false;
@@ -216,11 +231,18 @@ namespace PPTTools {
                 Decimal apm = Decimal.Divide(tGarbage, frames) * 3600;
                 labelAPM.Text = $"{apm.ToString("0.000")} APM";
 
+                Decimal apc;
+                if (tCleared == 0)
+                    apc = 0;
+                else
+                    apc = Decimal.Divide(tGarbage, tCleared);
+                labelAPC.Text = $"{apc.ToString("0.000")} APC";
+
                 Decimal kpp;
                 if (pieces == 0)
                     kpp = 0;
                 else 
-                    kpp = decimal.Divide(keystrokes, pieces);
+                    kpp = Decimal.Divide(keystrokes, pieces);
                 labelKPP.Text = $"{kpp.ToString("0.000")} KPP";
 
                 labelFinesse.Text = $"Finesse: {errors.ToString()}";
@@ -233,6 +255,7 @@ namespace PPTTools {
                 FTX();
                 PPS();
                 APM();
+                APC();
                 KPP();
                 Rating();
                 CalculateTimeBased();
