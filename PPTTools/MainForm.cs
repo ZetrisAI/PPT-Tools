@@ -106,6 +106,9 @@ namespace PPTTools {
                 
                 state = drop;
             }
+            
+            cPiecePos = GameHelper.PiecePosition(PPT, playerIndex);
+            cPieceRot = GameHelper.PieceRotation(PPT, playerIndex);
         }
 
         int cGarbage = 0;
@@ -181,9 +184,6 @@ namespace PPTTools {
         List<int> finesseKeys = new List<int>();
 
         private void Finesse() {
-            cPiecePos = GameHelper.PiecePosition(PPT, playerIndex);
-            cPieceRot = GameHelper.PieceRotation(PPT, playerIndex);
-            
             if (cPiece != null) {
                 errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
             }

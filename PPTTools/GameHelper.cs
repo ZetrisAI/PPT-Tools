@@ -166,11 +166,11 @@ namespace PPTTools {
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
                                     Game.ReadInt32(new IntPtr(
-                                        0x140463FD8
-                                    )) + 0xE0
-                                )) + 0xB0
-                            )) + 0x60
-                        )) + 0x54E
+                                        0x140461B20
+                                    )) + 0x380
+                                )) + 0xC0
+                            )) + 0x120
+                        )) + 0x1E
                     ));
             }
 
