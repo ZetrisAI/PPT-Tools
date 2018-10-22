@@ -208,6 +208,8 @@ namespace PPTTools {
             int frames = GameHelper.SmallFrames(PPT);
 
             if (frames != 0) {
+                labelDuration.Text = new TimeSpan((long)(frames * 166666.6666666667)).ToString("mm':'ss'.'fff");
+
                 Decimal pps = Decimal.Divide(pieces, frames) * 60;
                 labelPPS.Text = $"{pps.ToString("0.000")} PPS";
 

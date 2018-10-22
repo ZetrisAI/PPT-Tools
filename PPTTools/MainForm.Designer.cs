@@ -34,6 +34,7 @@
             this.labelRating = new System.Windows.Forms.Label();
             this.labelKPP = new System.Windows.Forms.Label();
             this.labelFinesse = new System.Windows.Forms.Label();
+            this.labelDuration = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP1
@@ -78,7 +79,7 @@
             // 
             this.labelPPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPPS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelPPS.Location = new System.Drawing.Point(37, 47);
+            this.labelPPS.Location = new System.Drawing.Point(39, 82);
             this.labelPPS.Name = "labelPPS";
             this.labelPPS.Size = new System.Drawing.Size(165, 26);
             this.labelPPS.TabIndex = 1;
@@ -89,7 +90,7 @@
             // 
             this.labelAPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAPM.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelAPM.Location = new System.Drawing.Point(40, 83);
+            this.labelAPM.Location = new System.Drawing.Point(42, 118);
             this.labelAPM.Name = "labelAPM";
             this.labelAPM.Size = new System.Drawing.Size(165, 26);
             this.labelAPM.TabIndex = 1;
@@ -100,7 +101,7 @@
             // 
             this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRating.Location = new System.Drawing.Point(20, 182);
+            this.labelRating.Location = new System.Drawing.Point(22, 217);
             this.labelRating.Name = "labelRating";
             this.labelRating.Size = new System.Drawing.Size(181, 26);
             this.labelRating.TabIndex = 1;
@@ -111,7 +112,7 @@
             // 
             this.labelKPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKPP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelKPP.Location = new System.Drawing.Point(37, 116);
+            this.labelKPP.Location = new System.Drawing.Point(39, 151);
             this.labelKPP.Name = "labelKPP";
             this.labelKPP.Size = new System.Drawing.Size(165, 26);
             this.labelKPP.TabIndex = 2;
@@ -122,18 +123,29 @@
             // 
             this.labelFinesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFinesse.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFinesse.Location = new System.Drawing.Point(8, 149);
+            this.labelFinesse.Location = new System.Drawing.Point(10, 184);
             this.labelFinesse.Name = "labelFinesse";
             this.labelFinesse.Size = new System.Drawing.Size(165, 26);
             this.labelFinesse.TabIndex = 2;
             this.labelFinesse.Text = "Finesse: 0";
+            // 
+            // labelDuration
+            // 
+            this.labelDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDuration.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelDuration.Location = new System.Drawing.Point(54, 46);
+            this.labelDuration.Name = "labelDuration";
+            this.labelDuration.Size = new System.Drawing.Size(121, 26);
+            this.labelDuration.TabIndex = 2;
+            this.labelDuration.Text = "0:00.000";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(218, 218);
+            this.ClientSize = new System.Drawing.Size(218, 259);
+            this.Controls.Add(this.labelDuration);
             this.Controls.Add(this.labelFinesse);
             this.Controls.Add(this.labelKPP);
             this.Controls.Add(this.labelRating);
@@ -163,6 +175,7 @@
         private System.Windows.Forms.Label labelRating;
         private System.Windows.Forms.Label labelKPP;
         private System.Windows.Forms.Label labelFinesse;
+        private System.Windows.Forms.Label labelDuration;
     }
 }
 
