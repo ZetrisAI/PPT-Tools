@@ -23,12 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.labelP1 = new System.Windows.Forms.Label();
             this.labelP2 = new System.Windows.Forms.Label();
             this.labelDelimiter = new System.Windows.Forms.Label();
-            this.ScanTimer = new System.Windows.Forms.Timer(this.components);
             this.labelPPS = new System.Windows.Forms.Label();
             this.labelAPM = new System.Windows.Forms.Label();
             this.labelRating = new System.Windows.Forms.Label();
@@ -69,12 +67,6 @@
             this.labelDelimiter.TabIndex = 0;
             this.labelDelimiter.Text = "-";
             this.labelDelimiter.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // ScanTimer
-            // 
-            this.ScanTimer.Enabled = true;
-            this.ScanTimer.Interval = 3;
-            this.ScanTimer.Tick += new System.EventHandler(this.ScanTimer_Tick);
             // 
             // labelPPS
             // 
@@ -173,6 +165,7 @@
             this.Name = "MainForm";
             this.Text = "PPT Tools";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -182,7 +175,6 @@
         private System.Windows.Forms.Label labelP1;
         private System.Windows.Forms.Label labelP2;
         private System.Windows.Forms.Label labelDelimiter;
-        private System.Windows.Forms.Timer ScanTimer;
         private System.Windows.Forms.Label labelPPS;
         private System.Windows.Forms.Label labelAPM;
         private System.Windows.Forms.Label labelRating;

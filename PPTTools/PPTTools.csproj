@@ -51,7 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FinesseHelper.cs" />
+    <Compile Include="FTXForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTXForm.Designer.cs">
+      <DependentUpon>FTXForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameHelper.cs" />
+    <Compile Include="LogicHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FTXForm.resx">
+      <DependentUpon>FTXForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
