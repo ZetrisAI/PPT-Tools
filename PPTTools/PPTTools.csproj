@@ -50,6 +50,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DurationForm.Designer.cs">
+      <DependentUpon>DurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinesseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinesseForm.Designer.cs">
+      <DependentUpon>FinesseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RatingForm.Designer.cs">
+      <DependentUpon>RatingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KPPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KPPForm.Designer.cs">
+      <DependentUpon>KPPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APCForm.Designer.cs">
+      <DependentUpon>APCForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FinesseHelper.cs" />
     <Compile Include="FTXForm.cs">
       <SubType>Form</SubType>
@@ -65,13 +95,46 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="APMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMForm.Designer.cs">
+      <DependentUpon>APMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPSForm.Designer.cs">
+      <DependentUpon>PPSForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DurationForm.resx">
+      <DependentUpon>DurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinesseForm.resx">
+      <DependentUpon>FinesseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RatingForm.resx">
+      <DependentUpon>RatingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KPPForm.resx">
+      <DependentUpon>KPPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APCForm.resx">
+      <DependentUpon>APCForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FTXForm.resx">
       <DependentUpon>FTXForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMForm.resx">
+      <DependentUpon>APMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PPSForm.resx">
+      <DependentUpon>PPSForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
