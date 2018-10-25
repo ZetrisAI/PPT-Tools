@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void PPSForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._PPS.Changed += OnChanged;
+            GameHelper.GameState._PPS.Update();
         }
     }
 }

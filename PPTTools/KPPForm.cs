@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void KPPForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._KPP.Changed += OnChanged;
+            GameHelper.GameState._KPP.Update();
         }
     }
 }

@@ -332,7 +332,6 @@ namespace PPTTools {
                     if (drop == 1) {
                         if (cPiece != null) {
                             errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
-                            Raise();
                         }
 
                         finesseKeys.Clear();
@@ -345,6 +344,8 @@ namespace PPTTools {
 
                 cPiecePos = GameHelper.PiecePosition(GameHelper.GameState.playerIndex);
                 cPieceRot = GameHelper.PieceRotation(GameHelper.GameState.playerIndex);
+
+                Raise();
             }
 
             public Finesse() {
@@ -372,10 +373,10 @@ namespace PPTTools {
             public void Update() {
                 int rating = GameHelper.Rating();
 
-                if (rating != current) {
+                if (rating != current)
                     current = rating;
-                    Raise();
-                }
+
+                Raise();
             }
 
             public Rating() {

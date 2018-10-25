@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void DurationForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._Duration.Changed += OnChanged;
+            GameHelper.GameState._Duration.Update();
         }
     }
 }

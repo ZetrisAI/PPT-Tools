@@ -60,7 +60,7 @@ namespace PPTTools {
                         _APC.Reset();
                         _KPP.Reset();
                         _Finesse.Reset();
-                        _Rating.Reset();
+                        // Don't Reset Rating, it regulates itself
                         _Duration.Reset();
                     } else {
                         _FTX.Update();

@@ -20,6 +20,7 @@ namespace PPTTools {
 
         private void RatingForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._Rating.Changed += OnChanged;
+            GameHelper.GameState._Rating.Update();
         }
     }
 }

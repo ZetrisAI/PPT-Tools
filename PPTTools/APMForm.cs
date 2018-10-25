@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void APMForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._APM.Changed += OnChanged;
+            GameHelper.GameState._APM.Update();
         }
     }
 }

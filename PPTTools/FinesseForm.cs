@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void FinesseForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._Finesse.Changed += OnChanged;
+            GameHelper.GameState._Finesse.Update();
         }
     }
 }

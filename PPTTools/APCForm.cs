@@ -19,6 +19,7 @@ namespace PPTTools {
 
         private void APCForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._APC.Changed += OnChanged;
+            GameHelper.GameState._APC.Update();
         }
     }
 }

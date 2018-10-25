@@ -20,6 +20,7 @@ namespace PPTTools {
 
         private void FTXForm_Load(object sender, EventArgs e) {
             GameHelper.GameState._FTX.Changed += OnChanged;
+            GameHelper.GameState._FTX.Update();
         }
     }
 }
