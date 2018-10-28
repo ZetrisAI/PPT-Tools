@@ -95,7 +95,7 @@ namespace PPTTools {
 
                 Update(null, EventArgs.Empty);
 
-                Scan.Interval = 3;
+                Scan.Interval = 1;
                 Scan.Enabled = true;
                 Scan.Tick += Update;
             }

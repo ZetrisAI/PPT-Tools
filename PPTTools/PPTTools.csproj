@@ -189,7 +189,7 @@
     <None Include="Resources\key5_1.png" />
     <None Include="Resources\key6_0.png" />
     <None Include="Resources\key6_1.png" />
-    <Content Include="Resources\VAMemory.dll">
+    <Content Include="VAMemory.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
