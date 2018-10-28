@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-
-namespace PPTTools {
+﻿namespace PPTTools {
     namespace Modules {
         public class Inputs {
             private int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0};
