@@ -28,49 +28,49 @@ namespace PPTTools {
             }
 
             public void Update() {
-                for (int i = 0; i < 7; i++) {
-                    int key = GameHelper.Keystroke(i);
-
-                    if (key != keyStates[i]) {
-                        if (key == 1 && GameHelper.BigFrames() >= 147) {
-                            if (i == 6 && !holdUsed) {
-                                finesseKeys.Clear();
-                                holdUsed = true;
-
-                                if (cHold == null) {
-                                    cHold = cPiece;
-                                    cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
-                                } else {
-                                    int temp = cHold.Value;
-                                    cHold = cPiece;
-                                    cPiece = temp;
-                                }
-                            }
-
-                            if (i != 2 && i != 3 && i != 6) {
-                                finesseKeys.Add(i);
-                            }
-                        }
-
-                        keyStates[i] = key;
-                    }
-                }
-
                 int drop = GameHelper.PieceDropped(GameHelper.GameState.playerIndex);
 
-                if (drop != state) {
-                    if (drop == 1) {
+                if (drop == 1) {
+                    if (drop != state) {
                         if (cPiece != null) {
-                            errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
+                            errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot, cHold);
                         }
 
                         finesseKeys.Clear();
                         holdUsed = false;
                         cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
                     }
+                } else {
+                    for (int i = 0; i < 7; i++) {
+                        int key = GameHelper.Keystroke(i);
 
-                    state = drop;
+                        if (key != keyStates[i]) {
+                            if (key == 1 && GameHelper.BigFrames() >= 147) {
+                                if (i == 6 && !holdUsed) {
+                                    finesseKeys.Clear();
+                                    holdUsed = true;
+
+                                    if (cHold == null) {
+                                        cHold = cPiece;
+                                        cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
+                                    } else {
+                                        int temp = cHold.Value;
+                                        cHold = cPiece;
+                                        cPiece = temp;
+                                    }
+                                }
+
+                                if (i != 2 && i != 3 && i != 6) {
+                                    finesseKeys.Add(i);
+                                }
+                            }
+
+                            keyStates[i] = key;
+                        }
+                    }
                 }
+
+                state = drop;
 
                 cPiecePos = GameHelper.PiecePosition(GameHelper.GameState.playerIndex);
                 cPieceRot = GameHelper.PieceRotation(GameHelper.GameState.playerIndex);
