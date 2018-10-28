@@ -12,37 +12,37 @@ namespace PPTTools {
         public static class GameState {
             public static int playerIndex = 0;
 
-            public static LogicHelper.FTX _FTX;
-            public static LogicHelper.PPS _PPS;
-            public static LogicHelper.APM _APM;
-            public static LogicHelper.APC _APC;
-            public static LogicHelper.KPP _KPP;
-            public static LogicHelper.Finesse _Finesse;
-            public static LogicHelper.Rating _Rating;
-            public static LogicHelper.Duration _Duration;
+            public static Modules.FTX _FTX;
+            public static Modules.PPS _PPS;
+            public static Modules.APM _APM;
+            public static Modules.APC _APC;
+            public static Modules.KPP _KPP;
+            public static Modules.Finesse _Finesse;
+            public static Modules.Rating _Rating;
+            public static Modules.Duration _Duration;
 
             private static Timer Scan = new Timer();
 
             public static bool EnsureGame() {
-                if (GameHelper.Game == null) {
+                if (Game == null) {
                     if (Process.GetProcessesByName("puyopuyotetris").Length != 0) {
-                        GameHelper.Game = new VAMemory("puyopuyotetris");
+                        Game = new VAMemory("puyopuyotetris");
 
-                        _FTX = new LogicHelper.FTX();
-                        _PPS = new LogicHelper.PPS();
-                        _APM = new LogicHelper.APM();
-                        _APC = new LogicHelper.APC();
-                        _KPP = new LogicHelper.KPP();
-                        _Finesse = new LogicHelper.Finesse();
-                        _Rating = new LogicHelper.Rating();
-                        _Duration = new LogicHelper.Duration();
+                        _FTX = new Modules.FTX();
+                        _PPS = new Modules.PPS();
+                        _APM = new Modules.APM();
+                        _APC = new Modules.APC();
+                        _KPP = new Modules.KPP();
+                        _Finesse = new Modules.Finesse();
+                        _Rating = new Modules.Rating();
+                        _Duration = new Modules.Duration();
 
                     } else {
                         return false;
                     }
                 
                 } else if (Process.GetProcessesByName("puyopuyotetris").Length == 0) {
-                    GameHelper.Game = null;
+                    Game = null;
                     return false;
                 }
 
@@ -51,9 +51,9 @@ namespace PPTTools {
 
             public static void Update(object sender, EventArgs e) {
                 if (EnsureGame()) {
-                    playerIndex = LogicHelper.FindPlayer();
+                    playerIndex = FindPlayer();
 
-                    if (GameHelper.BigFrames() < 148) {
+                    if (BigFrames() < 148) {
                         // Don't Reset FTX, it regulates itself
                         _PPS.Reset();
                         _APM.Reset();
@@ -384,5 +384,44 @@ namespace PPTTools {
                 )) + 0x20
             )) + 0x118 + index * 0x50
         ));
+
+        public static int FindPlayer() {
+            if (PlayerCount() < 2)
+                return 0;
+
+            int localSteam = LocalSteam();
+
+            for (int i = 0; i < 2; i++)
+                if (localSteam == PlayerSteam(i))
+                    return i;
+
+            return 0;
+        }
+
+        private enum MatchState {
+            Menu,
+            Match,
+            Finished
+        }
+        private static MatchState matchState = MatchState.Menu;
+
+        public static bool EnsureMatch() {
+            if (Game.ReadInt32(new IntPtr(0x140573A78)) != 0x0) {
+                if (matchState == MatchState.Match) {
+                    matchState = MatchState.Finished;
+                }
+            }
+
+            int scoreAddress = Game.ReadInt32(new IntPtr(0x14057F048));
+
+            if (scoreAddress == 0x0) {
+                if (matchState == MatchState.Finished)
+                    matchState = MatchState.Menu;
+
+            } else if (matchState == MatchState.Menu)
+                matchState = MatchState.Match;
+
+            return matchState == MatchState.Match;
+        }
     }
 }

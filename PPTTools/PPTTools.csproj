@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -50,90 +50,98 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DurationForm.cs">
+    <Compile Include="Modules\APC\APC.cs" />
+    <Compile Include="Modules\APM\APM.cs" />
+    <Compile Include="Modules\Duration\Duration.cs" />
+    <Compile Include="Modules\Duration\DurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DurationForm.Designer.cs">
+    <Compile Include="Modules\Duration\DurationForm.Designer.cs">
       <DependentUpon>DurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FinesseForm.cs">
+    <Compile Include="Modules\Finesse\Finesse.cs" />
+    <Compile Include="Modules\Finesse\FinesseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FinesseForm.Designer.cs">
+    <Compile Include="Modules\Finesse\FinesseForm.Designer.cs">
       <DependentUpon>FinesseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RatingForm.cs">
+    <Compile Include="Modules\FTX\FTX.cs" />
+    <Compile Include="Modules\Inputs\Inputs.cs" />
+    <Compile Include="Modules\KPP\KPP.cs" />
+    <Compile Include="Modules\PPS\PPS.cs" />
+    <Compile Include="Modules\Rating\Rating.cs" />
+    <Compile Include="Modules\Rating\RatingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RatingForm.Designer.cs">
+    <Compile Include="Modules\Rating\RatingForm.Designer.cs">
       <DependentUpon>RatingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KPPForm.cs">
+    <Compile Include="Modules\KPP\KPPForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KPPForm.Designer.cs">
+    <Compile Include="Modules\KPP\KPPForm.Designer.cs">
       <DependentUpon>KPPForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="APCForm.cs">
+    <Compile Include="Modules\APC\APCForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="APCForm.Designer.cs">
+    <Compile Include="Modules\APC\APCForm.Designer.cs">
       <DependentUpon>APCForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FinesseHelper.cs" />
-    <Compile Include="FTXForm.cs">
+    <Compile Include="Modules\FTX\FTXForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FTXForm.Designer.cs">
+    <Compile Include="Modules\FTX\FTXForm.Designer.cs">
       <DependentUpon>FTXForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameHelper.cs" />
-    <Compile Include="LogicHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="APMForm.cs">
+    <Compile Include="Modules\APM\APMForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="APMForm.Designer.cs">
+    <Compile Include="Modules\APM\APMForm.Designer.cs">
       <DependentUpon>APMForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PPSForm.cs">
+    <Compile Include="Modules\PPS\PPSForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PPSForm.Designer.cs">
+    <Compile Include="Modules\PPS\PPSForm.Designer.cs">
       <DependentUpon>PPSForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DurationForm.resx">
+    <EmbeddedResource Include="Modules\Duration\DurationForm.resx">
       <DependentUpon>DurationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FinesseForm.resx">
+    <EmbeddedResource Include="Modules\Finesse\FinesseForm.resx">
       <DependentUpon>FinesseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RatingForm.resx">
+    <EmbeddedResource Include="Modules\Rating\RatingForm.resx">
       <DependentUpon>RatingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KPPForm.resx">
+    <EmbeddedResource Include="Modules\KPP\KPPForm.resx">
       <DependentUpon>KPPForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="APCForm.resx">
+    <EmbeddedResource Include="Modules\APC\APCForm.resx">
       <DependentUpon>APCForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FTXForm.resx">
+    <EmbeddedResource Include="Modules\FTX\FTXForm.resx">
       <DependentUpon>FTXForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="APMForm.resx">
+    <EmbeddedResource Include="Modules\APM\APMForm.resx">
       <DependentUpon>APMForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PPSForm.resx">
+    <EmbeddedResource Include="Modules\PPS\PPSForm.resx">
       <DependentUpon>PPSForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -156,8 +164,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ftx-icon.ico" />
-    <Content Include="icon.ico" />
+    <Content Include="Resources\icon.ico" />
+    <Content Include="Resources\VAMemory.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
