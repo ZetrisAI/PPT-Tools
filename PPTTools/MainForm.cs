@@ -44,8 +44,8 @@ namespace PPTTools {
             new RatingForm().Show();
         }
 
-        private void buttonReset_Click(object sender, EventArgs e) {
-            GameHelper.GameState.Reset();
+        private void buttonInputs_Click(object sender, EventArgs e) {
+            new InputsForm().Show();
         }
     }
 }

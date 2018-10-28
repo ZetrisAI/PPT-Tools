@@ -67,6 +67,12 @@
       <DependentUpon>FinesseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\FTX\FTX.cs" />
+    <Compile Include="Modules\Inputs\InputsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Inputs\InputsForm.Designer.cs">
+      <DependentUpon>InputsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Inputs\Inputs.cs" />
     <Compile Include="Modules\KPP\KPP.cs" />
     <Compile Include="Modules\PPS\PPS.cs" />
@@ -123,6 +129,9 @@
     <EmbeddedResource Include="Modules\Finesse\FinesseForm.resx">
       <DependentUpon>FinesseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Inputs\InputsForm.resx">
+      <DependentUpon>InputsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Rating\RatingForm.resx">
       <DependentUpon>RatingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +161,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -165,6 +175,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+    <None Include="Resources\key0_0.png" />
+    <None Include="Resources\key0_1.png" />
+    <None Include="Resources\key1_0.png" />
+    <None Include="Resources\key1_1.png" />
+    <None Include="Resources\key2_0.png" />
+    <None Include="Resources\key2_1.png" />
+    <None Include="Resources\key3_0.png" />
+    <None Include="Resources\key3_1.png" />
+    <None Include="Resources\key4_0.png" />
+    <None Include="Resources\key4_1.png" />
+    <None Include="Resources\key5_0.png" />
+    <None Include="Resources\key5_1.png" />
+    <None Include="Resources\key6_0.png" />
+    <None Include="Resources\key6_1.png" />
     <Content Include="Resources\VAMemory.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

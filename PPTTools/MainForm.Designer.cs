@@ -32,7 +32,7 @@
             this.buttonFinesse = new System.Windows.Forms.Button();
             this.buttonDuration = new System.Windows.Forms.Button();
             this.buttonRating = new System.Windows.Forms.Button();
-            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonInputs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonFTX
@@ -115,15 +115,15 @@
             this.buttonRating.UseVisualStyleBackColor = true;
             this.buttonRating.Click += new System.EventHandler(this.buttonRating_Click);
             // 
-            // buttonReset
+            // buttonInputs
             // 
-            this.buttonReset.Location = new System.Drawing.Point(160, 81);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(71, 32);
-            this.buttonReset.TabIndex = 0;
-            this.buttonReset.Text = "RESET";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.buttonInputs.Location = new System.Drawing.Point(160, 81);
+            this.buttonInputs.Name = "buttonInputs";
+            this.buttonInputs.Size = new System.Drawing.Size(71, 32);
+            this.buttonInputs.TabIndex = 0;
+            this.buttonInputs.Text = "Inputs";
+            this.buttonInputs.UseVisualStyleBackColor = true;
+            this.buttonInputs.Click += new System.EventHandler(this.buttonInputs_Click);
             // 
             // MainForm
             // 
@@ -133,7 +133,7 @@
             this.ClientSize = new System.Drawing.Size(237, 119);
             this.Controls.Add(this.buttonFinesse);
             this.Controls.Add(this.buttonKPP);
-            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonInputs);
             this.Controls.Add(this.buttonRating);
             this.Controls.Add(this.buttonAPC);
             this.Controls.Add(this.buttonPPS);
@@ -161,7 +161,7 @@
         private System.Windows.Forms.Button buttonFinesse;
         private System.Windows.Forms.Button buttonDuration;
         private System.Windows.Forms.Button buttonRating;
-        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonInputs;
     }
 }
 

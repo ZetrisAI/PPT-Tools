@@ -20,6 +20,7 @@ namespace PPTTools {
             public static Modules.Finesse _Finesse;
             public static Modules.Rating _Rating;
             public static Modules.Duration _Duration;
+            public static Modules.Inputs _Inputs;
 
             private static Timer Scan = new Timer();
 
@@ -36,6 +37,7 @@ namespace PPTTools {
                         _Finesse = new Modules.Finesse();
                         _Rating = new Modules.Rating();
                         _Duration = new Modules.Duration();
+                        _Inputs = new Modules.Inputs();
 
                     } else {
                         return false;
@@ -62,6 +64,7 @@ namespace PPTTools {
                         _Finesse.Reset();
                         // Don't Reset Rating, it regulates itself
                         _Duration.Reset();
+                        _Inputs.Reset();
                     } else {
                         _FTX.Update();
                         _PPS.Update();
@@ -71,6 +74,7 @@ namespace PPTTools {
                         _Finesse.Update();
                         _Rating.Update();
                         _Duration.Update();
+                        _Inputs.Update();
                     }
                 }
             }
@@ -85,6 +89,7 @@ namespace PPTTools {
                     _Finesse.Reset();
                     _Rating.Reset();
                     _Duration.Reset();
+                    _Inputs.Reset();
                 }
             }
 

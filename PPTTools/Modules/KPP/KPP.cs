@@ -7,7 +7,7 @@ using System.Text;
 namespace PPTTools {
     namespace Modules {
         public class KPP {
-            private int[] keyStates = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
+            private int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0};
             private int keystrokes, state, pieces;
 
             public delegate void KPPEventHandler(Decimal KPP);
