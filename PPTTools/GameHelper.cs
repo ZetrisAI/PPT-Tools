@@ -52,7 +52,7 @@ namespace PPTTools {
                 if (EnsureGame()) {
                     playerIndex = FindPlayer();
 
-                    if (BigFrames() < 148) {
+                    if (BigFrames() < 140) {
                         // Don't Reset FTX, it regulates itself
                         _PPS.Reset();
                         _APM.Reset();
@@ -249,6 +249,32 @@ namespace PPTTools {
             return -1;
         }
 
+        public static int NextPointer(int index) {
+            switch (index) {
+                case 0:
+                    return  Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                0x140461B20
+                            )) + 0x378
+                        )) + 0xB8
+                    )) + 0x15C;
+
+                case 1:
+                    return Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    0x1405989D0
+                                )) + 0x78
+                            )) + 0x28
+                        )) + 0xB8
+                    )) + 0x15C;
+            }
+
+            return -1;
+        }
+
         public static int PiecePosition(int index) {
             switch (index) {
                 case 0:
@@ -347,14 +373,48 @@ namespace PPTTools {
             return -1;
         }
 
+        public static int HoldPointer(int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x140460C08
+                                    )) + 0x18
+                                )) + 0x268
+                            )) + 0x38
+                        )) + 0x3C8
+                    )) + 0x18;
+
+                case 1:
+                    return Game.ReadInt32(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x1405989D0
+                                    )) + 0x78
+                                )) + 0x20
+                            )) + 0xA8
+                        )) + 0x3C8
+                    )) + 0x18;
+            }
+
+            return -1;
+        }
+
         public static int BigFrames() => Game.ReadInt32(new IntPtr(
             Game.ReadInt32(new IntPtr(
                 Game.ReadInt32(new IntPtr(
                     Game.ReadInt32(new IntPtr(
-                        0x140598A20
-                    )) + 0x138
-                )) + 0x30
-            )) + 0x208
+                        Game.ReadInt32(new IntPtr(
+                            0x140460C08
+                        )) + 0x18
+                    )) + 0x268
+                )) + 0x140
+            )) + 0x58
         ));
 
         public static int SmallFrames() => Game.ReadInt32(new IntPtr(
