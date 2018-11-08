@@ -220,7 +220,7 @@ namespace PPTTools {
             }
         };
 
-        public static int Errors(int piece, List<int> keys, int pos, int rot, int? holding) {
+        public static int Errors(int piece, List<int> keys, int pos, int rot) {
             int orient = rot; // L, J, T
             int placement = pos;
 
@@ -259,13 +259,7 @@ namespace PPTTools {
                     break;
             }
 
-            try {
-                return Math.Max(0, keys.Count - finesse[piece][orient][placement].Count);
-            } catch {
-                if (holding.HasValue)
-                    return Errors(holding.Value, keys, pos, rot, null);
-                throw new InvalidOperationException($"Finesse reading went wrong: piece={piece}, holding={holding}, orientation={orient}, position={pos}");
-            }
+            return Math.Max(0, keys.Count - finesse[piece][orient][placement].Count);
         }
     }
 }
