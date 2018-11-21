@@ -29,7 +29,6 @@
             this.buttonKPP = new System.Windows.Forms.Button();
             this.buttonAPM = new System.Windows.Forms.Button();
             this.buttonAPC = new System.Windows.Forms.Button();
-            this.buttonFinesse = new System.Windows.Forms.Button();
             this.buttonDuration = new System.Windows.Forms.Button();
             this.buttonRating = new System.Windows.Forms.Button();
             this.buttonInputs = new System.Windows.Forms.Button();
@@ -85,16 +84,6 @@
             this.buttonAPC.UseVisualStyleBackColor = true;
             this.buttonAPC.Click += new System.EventHandler(this.buttonAPC_Click);
             // 
-            // buttonFinesse
-            // 
-            this.buttonFinesse.Location = new System.Drawing.Point(160, 44);
-            this.buttonFinesse.Name = "buttonFinesse";
-            this.buttonFinesse.Size = new System.Drawing.Size(71, 32);
-            this.buttonFinesse.TabIndex = 0;
-            this.buttonFinesse.Text = "Finesse";
-            this.buttonFinesse.UseVisualStyleBackColor = true;
-            this.buttonFinesse.Click += new System.EventHandler(this.buttonFinesse_Click);
-            // 
             // buttonDuration
             // 
             this.buttonDuration.Location = new System.Drawing.Point(6, 81);
@@ -131,7 +120,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(237, 119);
-            this.Controls.Add(this.buttonFinesse);
             this.Controls.Add(this.buttonKPP);
             this.Controls.Add(this.buttonInputs);
             this.Controls.Add(this.buttonRating);
@@ -158,7 +146,6 @@
         private System.Windows.Forms.Button buttonKPP;
         private System.Windows.Forms.Button buttonAPM;
         private System.Windows.Forms.Button buttonAPC;
-        private System.Windows.Forms.Button buttonFinesse;
         private System.Windows.Forms.Button buttonDuration;
         private System.Windows.Forms.Button buttonRating;
         private System.Windows.Forms.Button buttonInputs;

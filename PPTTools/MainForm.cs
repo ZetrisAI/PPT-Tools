@@ -31,10 +31,6 @@ namespace PPTTools {
             new APCForm().Show();
         }
 
-        private void buttonFinesse_Click(object sender, EventArgs e) {
-            new FinesseForm().Show();
-        }
-
         private void buttonDuration_Click(object sender, EventArgs e) {
             new DurationForm().Show();
         }
