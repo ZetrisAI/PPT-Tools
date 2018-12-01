@@ -14,6 +14,7 @@ namespace PPTTools {
             public static Modules.APM _APM;
             public static Modules.APC _APC;
             public static Modules.KPP _KPP;
+            public static Modules.Finesse _Finesse;
             public static Modules.Rating _Rating;
             public static Modules.Duration _Duration;
             public static Modules.Inputs _Inputs;
@@ -30,6 +31,7 @@ namespace PPTTools {
                         _APM = new Modules.APM();
                         _APC = new Modules.APC();
                         _KPP = new Modules.KPP();
+                        _Finesse = new Modules.Finesse();
                         _Rating = new Modules.Rating();
                         _Duration = new Modules.Duration();
                         _Inputs = new Modules.Inputs();
@@ -56,6 +58,7 @@ namespace PPTTools {
                         _APM.Reset();
                         _APC.Reset();
                         _KPP.Reset();
+                        _Finesse.Reset();
                         // Don't Reset Rating, it regulates itself
                         _Duration.Reset();
                         _Inputs.Reset();
@@ -65,6 +68,7 @@ namespace PPTTools {
                         _APM.Update();
                         _APC.Update();
                         _KPP.Update();
+                        _Finesse.Update();
                         _Rating.Update();
                         _Duration.Update();
                         _Inputs.Update();
@@ -79,6 +83,7 @@ namespace PPTTools {
                     _APM.Reset();
                     _APC.Reset();
                     _KPP.Reset();
+                    _Finesse.Reset();
                     _Rating.Reset();
                     _Duration.Reset();
                     _Inputs.Reset();

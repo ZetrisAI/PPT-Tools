@@ -59,6 +59,13 @@
     <Compile Include="Modules\Duration\DurationForm.Designer.cs">
       <DependentUpon>DurationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Finesse\Finesse.cs" />
+    <Compile Include="Modules\Finesse\FinesseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Finesse\FinesseForm.Designer.cs">
+      <DependentUpon>FinesseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\FTX\FTX.cs" />
     <Compile Include="Modules\Inputs\InputsForm.cs">
       <SubType>Form</SubType>
@@ -118,6 +125,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Modules\Duration\DurationForm.resx">
       <DependentUpon>DurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Finesse\FinesseForm.resx">
+      <DependentUpon>FinesseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inputs\InputsForm.resx">
       <DependentUpon>InputsForm.cs</DependentUpon>
