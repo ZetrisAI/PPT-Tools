@@ -1,9 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace PPTTools {
     namespace Modules {
-        public class KPP {
+        public class KPP: Module {
             private int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0}, queue = new int[5];
             private int keystrokes, state, pieces, piece;
             private bool register = false, door = false;
@@ -82,6 +83,16 @@ namespace PPTTools {
 
             public KPP() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(Decimal kpp) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"{kpp} KPP");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

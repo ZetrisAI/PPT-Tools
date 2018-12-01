@@ -1,6 +1,8 @@
-﻿namespace PPTTools {
+﻿using System.IO;
+
+namespace PPTTools {
     namespace Modules {
-        public class FTX {
+        public class FTX: Module {
             private int[] score, total;
 
             public delegate void FTXEventHandler(int[] Score);
@@ -39,6 +41,16 @@
 
             public FTX() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(int[] score) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"{score[0]} - {score[1]}");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Modules\Inputs\Inputs.cs" />
     <Compile Include="Modules\KPP\KPP.cs" />
+    <Compile Include="Modules\Module.cs" />
     <Compile Include="Modules\PPS\PPS.cs" />
     <Compile Include="Modules\Rating\Rating.cs" />
     <Compile Include="Modules\Rating\RatingForm.cs">

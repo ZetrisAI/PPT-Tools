@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace PPTTools {
     namespace Modules {
-        public class Finesse {
+        public class Finesse: Module {
             private int[] keyStates = new int[7] { 0, 0, 0, 0, 0, 0, 0 }, queue;
             private List<int> finesseKeys = new List<int>();
 
-            private bool register, door, holdPressed;
+            private bool register, door;
             private int errors, cPiece, cPiecePos, cPieceRot, state, holdPtr, piece;
             private int? cHold;
 
-            public delegate void FinesseEventHandler(int Errors, int piece, int? hold, int pos, int rot);
+            public delegate void FinesseEventHandler(int Errors);
             public event FinesseEventHandler Changed;
 
             private void Raise() {
                 if (Changed != null) {
-                    Changed.Invoke(errors, cPiece, cHold, cPiecePos, cPieceRot);
+                    Changed.Invoke(errors);
                 }
             }
 
@@ -30,7 +31,6 @@ namespace PPTTools {
                 piece = 255;
                 register = true;
                 door = false;
-                holdPressed = false;
 
                 Raise();
             }
@@ -48,7 +48,6 @@ namespace PPTTools {
                         cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
                         cHold = (hold < 0x0800000)? GameHelper.FarPiece(GameHelper.GameState.playerIndex) : GameHelper.HoldPiece(GameHelper.GameState.playerIndex);
                         holdPtr = hold;
-                        holdPressed = false;
 
                         register = true;
                     }
@@ -97,6 +96,16 @@ namespace PPTTools {
 
             public Finesse() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(int errors) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"Finesse: {errors}");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

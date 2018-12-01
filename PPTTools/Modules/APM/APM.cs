@@ -1,8 +1,9 @@
 ﻿using System;
+using System.IO;
 
 namespace PPTTools {
     namespace Modules {
-        public class APM {
+        public class APM: Module {
             private int current, total, frames;
 
             public delegate void APMEventHandler(Decimal APM);
@@ -41,6 +42,16 @@ namespace PPTTools {
 
             public APM() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(Decimal apm) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"{apm} APM");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

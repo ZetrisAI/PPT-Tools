@@ -1,8 +1,9 @@
 ﻿using System;
+using System.IO;
 
 namespace PPTTools {
     namespace Modules {
-        public class Duration {
+        public class Duration: Module {
             int frames;
 
             public delegate void DurationEventHandler(string Time);
@@ -26,6 +27,16 @@ namespace PPTTools {
 
             public Duration() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(string time) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine(time);
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

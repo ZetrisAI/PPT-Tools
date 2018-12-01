@@ -44,6 +44,7 @@
             this.buttonFTX.Text = "FTX";
             this.buttonFTX.UseVisualStyleBackColor = true;
             this.buttonFTX.Click += new System.EventHandler(this.buttonFTX_Click);
+            this.buttonFTX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonFTX_RightClick);
             // 
             // buttonPPS
             // 
@@ -54,6 +55,7 @@
             this.buttonPPS.Text = "PPS";
             this.buttonPPS.UseVisualStyleBackColor = true;
             this.buttonPPS.Click += new System.EventHandler(this.buttonPPS_Click);
+            this.buttonPPS.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonPPS_RightClick);
             // 
             // buttonKPP
             // 
@@ -64,6 +66,7 @@
             this.buttonKPP.Text = "KPP";
             this.buttonKPP.UseVisualStyleBackColor = true;
             this.buttonKPP.Click += new System.EventHandler(this.buttonKPP_Click);
+            this.buttonKPP.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonKPP_RightClick);
             // 
             // buttonAPM
             // 
@@ -74,6 +77,7 @@
             this.buttonAPM.Text = "APM";
             this.buttonAPM.UseVisualStyleBackColor = true;
             this.buttonAPM.Click += new System.EventHandler(this.buttonAPM_Click);
+            this.buttonAPM.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonAPM_RightClick);
             // 
             // buttonAPC
             // 
@@ -84,6 +88,7 @@
             this.buttonAPC.Text = "APC";
             this.buttonAPC.UseVisualStyleBackColor = true;
             this.buttonAPC.Click += new System.EventHandler(this.buttonAPC_Click);
+            this.buttonAPC.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonAPC_RightClick);
             // 
             // buttonFinesse
             // 
@@ -94,6 +99,7 @@
             this.buttonFinesse.Text = "Finesse";
             this.buttonFinesse.UseVisualStyleBackColor = true;
             this.buttonFinesse.Click += new System.EventHandler(this.buttonFinesse_Click);
+            this.buttonFinesse.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonFinesse_RightClick);
             // 
             // buttonDuration
             // 
@@ -104,6 +110,7 @@
             this.buttonDuration.Text = "Duration";
             this.buttonDuration.UseVisualStyleBackColor = true;
             this.buttonDuration.Click += new System.EventHandler(this.buttonDuration_Click);
+            this.buttonDuration.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDuration_RightClick);
             // 
             // buttonRating
             // 
@@ -114,6 +121,7 @@
             this.buttonRating.Text = "Rating";
             this.buttonRating.UseVisualStyleBackColor = true;
             this.buttonRating.Click += new System.EventHandler(this.buttonRating_Click);
+            this.buttonRating.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonRating_RightClick);
             // 
             // buttonInputs
             // 

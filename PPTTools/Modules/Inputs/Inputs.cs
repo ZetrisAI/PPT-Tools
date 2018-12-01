@@ -1,6 +1,6 @@
 ﻿namespace PPTTools {
     namespace Modules {
-        public class Inputs {
+        public class Inputs: Module {
             private int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0};
 
             public delegate void InputsEventHandler(int[] keyStates);

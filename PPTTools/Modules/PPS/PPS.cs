@@ -1,8 +1,9 @@
 ﻿using System;
+using System.IO;
 
 namespace PPTTools {
     namespace Modules {
-        public class PPS {
+        public class PPS: Module {
             private int pieces, state, frames;
 
             public delegate void PPSEventHandler(Decimal PPS);
@@ -40,6 +41,16 @@ namespace PPTTools {
 
             public PPS() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(Decimal pps) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"{pps} PPS");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace PPTTools {
+﻿using System.IO;
+
+namespace PPTTools {
     namespace Modules {
-        public class Rating {
+        public class Rating: Module {
             private int start, current;
 
             public delegate void RatingEventHandler(int StartRating, int CurrentRating);
@@ -28,6 +30,16 @@
 
             public Rating() {
                 Reset();
+                Changed += Write;
+            }
+
+            private void Write(int start, int current) {
+                if (File.Exists(filename)) {
+                    StreamWriter sw = new StreamWriter(filename);
+                    sw.WriteLine($"{start} > {current}");
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }
