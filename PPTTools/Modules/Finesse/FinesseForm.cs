@@ -7,14 +7,12 @@ namespace PPTTools {
             InitializeComponent();
         }
 
-        private void OnChanged(int errors, int? piece, int? hold, int pos, int rot, bool holdused, int holdptr) {
+        private void OnChanged(int errors, int piece, int? hold, int pos, int rot) {
             labelFinesse.Text = $"Finesse: {errors.ToString()}";
             label1.Text = piece.ToString();
             label2.Text = hold.ToString();
-            label3.Text = holdused.ToString();
             label4.Text = pos.ToString();
             label5.Text = rot.ToString();
-            label6.Text = holdptr.ToString("X8");
         }
 
         private void FinesseForm_Load(object sender, EventArgs e) {

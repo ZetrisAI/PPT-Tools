@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PPTTools {
     class FinesseHelper {
@@ -221,6 +222,9 @@ namespace PPTTools {
         };
 
         public static int Errors(int piece, List<int> keys, int pos, int rot) {
+            keys = keys.Skip(keys.IndexOf(6) + 1).ToList();
+            keys.RemoveAll(x => x == 6);
+            
             int orient = rot; // L, J, T
             int placement = pos;
 

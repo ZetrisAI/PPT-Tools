@@ -5,31 +5,32 @@ using System.Linq;
 namespace PPTTools {
     namespace Modules {
         public class Finesse {
-            private int[] keyStates = new int[7] { 0, 0, 0, 0, 0, 0, 0 }, queue = new int[5];
+            private int[] keyStates = new int[7] { 0, 0, 0, 0, 0, 0, 0 }, queue;
             private List<int> finesseKeys = new List<int>();
-            private bool holdUsed, register = false, door = false, holdPressed = false;
-            private int? cPiece, cHold;
-            private int keystrokes, state, cPiecePos, cPieceRot, errors, piece, holdPtr = GameHelper.HoldPointer(GameHelper.GameState.playerIndex);
 
-            public delegate void FinesseEventHandler(int Errors, int? piece, int? hold, int pos, int rot, bool holdused, int holdPtr);
+            private bool register, door, holdPressed;
+            private int errors, cPiece, cPiecePos, cPieceRot, state, holdPtr, piece;
+            private int? cHold;
+
+            public delegate void FinesseEventHandler(int Errors, int piece, int? hold, int pos, int rot);
             public event FinesseEventHandler Changed;
 
             private void Raise() {
                 if (Changed != null) {
-                    Changed.Invoke(errors, cPiece, cHold, cPiecePos, cPieceRot, holdUsed, GameHelper.HoldPointer(GameHelper.GameState.playerIndex));
+                    Changed.Invoke(errors, cPiece, cHold, cPiecePos, cPieceRot);
                 }
             }
 
             public void Reset() {
-                keystrokes = errors = state = 0;
+                errors = state = 0;
                 holdPtr = GameHelper.HoldPointer(GameHelper.GameState.playerIndex);
                 cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
-                cHold = null;
-                holdUsed = false;
-                holdPressed = false;
+                cHold = GameHelper.FarPiece(GameHelper.GameState.playerIndex);
                 queue = new int[5];
                 piece = 255;
-                register = door = false;
+                register = true;
+                door = false;
+                holdPressed = false;
 
                 Raise();
             }
@@ -39,17 +40,17 @@ namespace PPTTools {
 
                 if (drop == 1) {
                     if (drop != state) {
-                        if (cPiece != null) {
-                            errors += FinesseHelper.Errors(cPiece.Value, finesseKeys, cPiecePos, cPieceRot);
-                        }
+                        int hold = GameHelper.HoldPointer(GameHelper.GameState.playerIndex);
+
+                        errors += FinesseHelper.Errors((holdPtr == hold)? cPiece : cHold.Value, finesseKeys, cPiecePos, cPieceRot);
 
                         finesseKeys.Clear();
-                        holdUsed = false;
                         cPiece = GameHelper.NextPiece(GameHelper.GameState.playerIndex);
+                        cHold = (hold < 0x0800000)? GameHelper.FarPiece(GameHelper.GameState.playerIndex) : GameHelper.HoldPiece(GameHelper.GameState.playerIndex);
+                        holdPtr = hold;
+                        holdPressed = false;
 
                         register = true;
-                        door = false;
-                        holdPressed = false;
                     }
                 } else {
                     int current = GameHelper.CurrentPiece(GameHelper.GameState.playerIndex);
@@ -70,12 +71,8 @@ namespace PPTTools {
 
                             if (key != keyStates[i]) {
                                 if (key == 1 && GameHelper.BigFrames() >= 147) {
-                                    if (i != 2 && i != 3 && i != 6) {
+                                    if (i != 2 && i != 3) {
                                         finesseKeys.Add(i);
-                                    }
-
-                                    if (i == 6) {
-                                        holdPressed = true;
                                     }
                                 }
 
@@ -88,27 +85,6 @@ namespace PPTTools {
 
                     if (!register)
                         queue = (int[])cQueue.Clone();
-
-                    int cHoldPtr = GameHelper.HoldPointer(GameHelper.GameState.playerIndex);
-
-                    if (cHoldPtr > 0x08000000) { 
-                        if (!holdUsed && cHoldPtr != holdPtr && holdPtr > 0x08000000 && holdPressed) {
-
-                            finesseKeys.Clear();
-                            holdUsed = true;
-
-                            if (cHold == null) {
-                                cHold = cPiece;
-                                cPiece = GameHelper.CurrentPiece(GameHelper.GameState.playerIndex);
-                            } else {
-                                int temp = cHold.Value;
-                                cHold = cPiece;
-                                cPiece = temp;
-                            }
-                        }
-
-                        holdPtr = cHoldPtr;
-                    }
                 }
 
                 state = drop;

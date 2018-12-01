@@ -249,6 +249,36 @@ namespace PPTTools {
             return -1;
         }
 
+        public static int FarPiece(int index) {
+            switch (index) {
+                case 0:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    0x140461B20
+                                )) + 0x378
+                            )) + 0xB8
+                        )) + 0x160
+                    ));
+
+                case 1:
+                    return Game.ReadByte(new IntPtr(
+                        Game.ReadInt32(new IntPtr(
+                            Game.ReadInt32(new IntPtr(
+                                Game.ReadInt32(new IntPtr(
+                                    Game.ReadInt32(new IntPtr(
+                                        0x1405989D0
+                                    )) + 0x78
+                                )) + 0x28
+                            )) + 0xB8
+                        )) + 0x160
+                    ));
+            }
+
+            return -1;
+        }
+
         public static int NextPointer(int index) {
             switch (index) {
                 case 0:
@@ -379,31 +409,29 @@ namespace PPTTools {
                     return Game.ReadInt32(new IntPtr(
                         Game.ReadInt32(new IntPtr(
                             Game.ReadInt32(new IntPtr(
-                                Game.ReadInt32(new IntPtr(
-                                    Game.ReadInt32(new IntPtr(
-                                        0x140460C08
-                                    )) + 0x18
-                                )) + 0x268
+                                0x140598A20
                             )) + 0x38
-                        )) + 0x3C8
-                    )) + 0x18;
+                        )) + 0x3D0
+                    )) + 0x8;
 
                 case 1:
                     return Game.ReadInt32(new IntPtr(
                         Game.ReadInt32(new IntPtr(
                             Game.ReadInt32(new IntPtr(
                                 Game.ReadInt32(new IntPtr(
-                                    Game.ReadInt32(new IntPtr(
-                                        0x1405989D0
-                                    )) + 0x78
-                                )) + 0x20
-                            )) + 0xA8
-                        )) + 0x3C8
-                    )) + 0x18;
+                                    0x1405989D0
+                                )) + 0x270
+                            )) + 0x20
+                        )) + 0x3D0
+                    )) + 0x8;
             }
 
             return -1;
         }
+
+        public static int HoldPiece(int index) => Game.ReadInt32(new IntPtr(
+            HoldPointer(index)
+        ));
 
         public static int BigFrames() => Game.ReadInt32(new IntPtr(
             Game.ReadInt32(new IntPtr(
