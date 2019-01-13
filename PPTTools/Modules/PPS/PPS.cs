@@ -4,6 +4,8 @@ using System.IO;
 namespace PPTTools {
     namespace Modules {
         public class PPS: Module {
+            private static readonly string ModuleIdentifier = "pps";
+
             private int pieces, state, frames;
 
             public delegate void PPSEventHandler(Decimal PPS);
@@ -39,7 +41,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public PPS() {
+            public PPS(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }
@@ -47,7 +49,7 @@ namespace PPTTools {
             private void Write(Decimal pps) {
                 if (File.Exists(filename)) {
                     StreamWriter sw = new StreamWriter(filename);
-                    sw.WriteLine($"{pps} PPS");
+                    sw.WriteLine(pps.ToString("0.000 PPS"));
                     sw.Flush();
                     sw.Close();
                 }

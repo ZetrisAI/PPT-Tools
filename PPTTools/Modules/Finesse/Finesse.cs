@@ -6,6 +6,8 @@ using System.Linq;
 namespace PPTTools {
     namespace Modules {
         public class Finesse: Module {
+            private static readonly string ModuleIdentifier = "finesse";
+
             private int[] keyStates = new int[7] { 0, 0, 0, 0, 0, 0, 0 }, queue;
             private List<int> finesseKeys = new List<int>();
 
@@ -94,7 +96,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public Finesse() {
+            public Finesse(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }
@@ -102,7 +104,7 @@ namespace PPTTools {
             private void Write(int errors) {
                 if (File.Exists(filename)) {
                     StreamWriter sw = new StreamWriter(filename);
-                    sw.WriteLine($"Finesse: {errors}");
+                    sw.WriteLine($"Finesse: {errors.ToString()}");
                     sw.Flush();
                     sw.Close();
                 }

@@ -3,6 +3,8 @@
 namespace PPTTools {
     namespace Modules {
         public class FTX: Module {
+            private static readonly string ModuleIdentifier = "ftx";
+
             private int[] score, total;
 
             public delegate void FTXEventHandler(int[] Score);
@@ -39,7 +41,7 @@ namespace PPTTools {
                 }
             }
 
-            public FTX() {
+            public FTX(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }

@@ -4,6 +4,8 @@ using System.IO;
 namespace PPTTools {
     namespace Modules {
         public class APC: Module {
+            private static readonly string ModuleIdentifier = "apc";
+
             private int currentSent, totalSent, currentCleared, totalCleared;
 
             public delegate void APCEventHandler(Decimal APC);
@@ -48,7 +50,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public APC() {
+            public APC(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }
@@ -56,7 +58,7 @@ namespace PPTTools {
             private void Write(Decimal apc) {
                 if (File.Exists(filename)) {
                     StreamWriter sw = new StreamWriter(filename);
-                    sw.WriteLine($"{apc} APC");
+                    sw.WriteLine(apc.ToString("0.000 APC"));
                     sw.Flush();
                     sw.Close();
                 }

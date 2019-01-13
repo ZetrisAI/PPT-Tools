@@ -5,6 +5,8 @@ using System.Linq;
 namespace PPTTools {
     namespace Modules {
         public class KPP: Module {
+            private static readonly string ModuleIdentifier = "kpp";
+
             private int[] keyStates = new int[7] {0, 0, 0, 0, 0, 0, 0}, queue = new int[5];
             private int keystrokes, state, pieces, piece;
             private bool register = false, door = false;
@@ -81,7 +83,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public KPP() {
+            public KPP(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }
@@ -89,7 +91,7 @@ namespace PPTTools {
             private void Write(Decimal kpp) {
                 if (File.Exists(filename)) {
                     StreamWriter sw = new StreamWriter(filename);
-                    sw.WriteLine($"{kpp} KPP");
+                    sw.WriteLine(kpp.ToString("0.000 KPP"));
                     sw.Flush();
                     sw.Close();
                 }

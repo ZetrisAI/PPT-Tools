@@ -4,6 +4,8 @@ using System.IO;
 namespace PPTTools {
     namespace Modules {
         public class Duration: Module {
+            private static readonly string ModuleIdentifier = "duration";
+
             int frames;
 
             public delegate void DurationEventHandler(string Time);
@@ -25,7 +27,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public Duration() {
+            public Duration(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }

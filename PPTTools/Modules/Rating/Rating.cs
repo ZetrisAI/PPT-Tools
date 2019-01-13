@@ -3,6 +3,8 @@
 namespace PPTTools {
     namespace Modules {
         public class Rating: Module {
+            private static readonly string ModuleIdentifier = "rating";
+
             private int start, current;
 
             public delegate void RatingEventHandler(int StartRating, int CurrentRating);
@@ -28,7 +30,7 @@ namespace PPTTools {
                 Raise();
             }
 
-            public Rating() {
+            public Rating(): base(ModuleIdentifier) {
                 Reset();
                 Changed += Write;
             }

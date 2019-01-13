@@ -13,9 +13,10 @@ namespace PPTTools {
         }
 
         private void fileSelect(Modules.Module module) {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Text Files|*.txt";
-            sfd.FileName = module.filename;
+            SaveFileDialog sfd = new SaveFileDialog {
+                Filter = "Text Files|*.txt",
+                FileName = module.filename
+            };
 
             if (sfd.ShowDialog() == DialogResult.OK) {
                 if (!sfd.CheckFileExists) {
