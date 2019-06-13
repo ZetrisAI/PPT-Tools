@@ -1,6 +1,8 @@
-# PPT Tools
+# PPT Tools (DEPRECATED)
 
-Puyo Puyo Tetris tools enhance your streaming or playing experience by providing you with useful statistics about your gameplay.
+These were my first effort on reverse engineering PPT, I've learned better since then, however other solutions have surpassed me and I have no interest in continuing this project. See https://github.com/bayoen.
+
+Puyo Puyo Tetris tools enhance your streaming or playing experience by providing you with useful statistics about your gameplay. 
 
 ## FTX
 
